@@ -658,6 +658,7 @@ class Model(nn.Module):
                 - int8 (bool): Whether to use int8 precision mode.
                 - device (str): Device to run the benchmark on (e.g., 'cpu', 'cuda').
                 - verbose (bool): Whether to print detailed benchmark information.
+                - format (str): Specific export format to benchmark.
 
         Returns:
             (Dict): A dictionary containing the results of the benchmarking process, including metrics for
@@ -684,6 +685,7 @@ class Model(nn.Module):
             int8=args["int8"],
             device=args["device"],
             verbose=kwargs.get("verbose"),
+            format=kwargs.get("format"),
         )
 
     def export(

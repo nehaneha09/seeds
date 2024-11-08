@@ -1,10 +1,11 @@
 import argparse
+
 import cv2
 import numpy as np
 import onnxruntime as ort
 import torch
 
-from ultralytics.utils import ASSETS, yaml_load
+from ultralytics.utils import yaml_load
 from ultralytics.utils.checks import check_requirements, check_yaml
 
 
@@ -35,7 +36,6 @@ class YOLOv8Classifier:
         Args:
             class_index (int): Index of the detected class to annotate.
         """
-
         # Draw the class label text on the image
         label = f"{self.class_names[class_index]}"
         cv2.putText(self.image, label, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
@@ -108,6 +108,7 @@ class YOLOv8Classifier:
 
         # Process and return the model output
         return self.process_output(model_output)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
